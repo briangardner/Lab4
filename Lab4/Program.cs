@@ -8,6 +8,7 @@ namespace Lab4
 {
     class Program
     {
+        private const string COLUMN_FORMAT = "{0,-15}{1,-15}{2,-15}";
         static void Main(string[] args)
         {
             Console.WriteLine("Learn your squares and cubes!\n");
@@ -22,11 +23,11 @@ namespace Lab4
             Console.ReadKey();
         }
 
-        private static void GeneratePowersTable(int inputAsInt)
+        private static void GeneratePowersTable(int input)
         {
-            for (int i = 1; i <= inputAsInt; ++i)
+            for (int i = 1; i <= input; ++i)
             {
-                OutputRow(i, Power(i, 2), Power(i, 3));
+               OutputRow(i, Power(i, 2), Power(i, 3));
             }
         }
 
@@ -39,12 +40,12 @@ namespace Lab4
 
         private static void OutputRow(string column1Value, string column2Value, string column3Value)
         {
-            Console.WriteLine("{0,-15}{1,-15}{2,-15}", column1Value, column2Value, column3Value);
+            Console.WriteLine(COLUMN_FORMAT, column1Value, column2Value, column3Value);
         }
 
         private static void OutputRow(int column1Value, int column2Value, int column3Value)
         {
-            Console.WriteLine("{0,-15}{1,-15}{2,-15}", column1Value, column2Value, column3Value);
+            Console.WriteLine(COLUMN_FORMAT, column1Value, column2Value, column3Value);
         }
 
         private static int Power(int number, int power)
