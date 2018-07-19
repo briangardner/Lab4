@@ -15,16 +15,26 @@ namespace Lab4
             var input = Console.ReadLine();
             if (int.TryParse(input, out var inputAsInt))
             {
-                Console.WriteLine();
-                OutputRow("Number", "Squared","Cubed");
-                OutputRow("=======", "=======", "=======");
-                for (int i = 1; i <= inputAsInt; ++i)
-                {
-                    OutputRow(i, Power(i, 2), Power(i, 3));
-                }
+                OutputHeaders();
+                GeneratePowersTable(inputAsInt);
             }
 
             Console.ReadKey();
+        }
+
+        private static void GeneratePowersTable(int inputAsInt)
+        {
+            for (int i = 1; i <= inputAsInt; ++i)
+            {
+                OutputRow(i, Power(i, 2), Power(i, 3));
+            }
+        }
+
+        private static void OutputHeaders()
+        {
+            Console.WriteLine();
+            OutputRow("Number", "Squared", "Cubed");
+            OutputRow("=======", "=======", "=======");
         }
 
         private static void OutputRow(string column1Value, string column2Value, string column3Value)
